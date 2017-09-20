@@ -39,6 +39,9 @@ public class Ballot {
 	}
 	
 	public String get(int rank){
+		if(this.candidates[rank]==null){
+			return "Nobody";
+		}
 		String candidate=this.candidates[rank];
 		return candidate;
 	}
