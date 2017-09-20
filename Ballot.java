@@ -6,26 +6,44 @@ import java.io.IOException;
 public class Ballot {
 
 	private int size = 0;
+	private String directory;
 	private File f;
+	private String[] candidates = new String[4];
 
 	public Ballot(String directory) {
 		this.f = new File(directory);
-	}
-
-	public int size(String directory) {
-		int lineCount = 0;
+		this.directory = directory;
 		try {
-			File f = new File(directory);
-			BufferedReader b = new BufferedReader(new FileReader(f));
+			BufferedReader b = new BufferedReader(new FileReader(this.f));
 			String readLine = "";
-			while ((readLine = b.readLine()) != null) {
-				System.out.println(readLine);
-				lineCount++;
+			int i=0;
+			while (((readLine = b.readLine()) != null)) {
+				this.candidates[i] = readLine;
+				readLine = b.readLine();
+				i++;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		}
+	
+
+	public int size() {
+		int lineCount=0;
+		for (int i=0;i<4;i++){
+			if(!this.candidates.equals(null)){
+				lineCount++;
+			}
+		}
 		return (lineCount);
+	}
+	
+	public String get(int rank){
+		for(int i=0;i<4;i++){
+			StdOut.println(this.directory +""+this.candidates[i]);
+		}
+		String candidate=this.candidates[rank];
+		return candidate;
 	}
 
 	public static void main(String[] args) {
