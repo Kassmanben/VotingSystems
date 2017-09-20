@@ -39,9 +39,6 @@ public class Ballot {
 	}
 	
 	public String get(int rank){
-		for(int i=0;i<4;i++){
-			StdOut.println(this.directory +""+this.candidates[i]);
-		}
 		String candidate=this.candidates[rank];
 		return candidate;
 	}
