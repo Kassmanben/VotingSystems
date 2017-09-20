@@ -15,10 +15,11 @@ public class ApprovalElection {
 		for (File f : ballots) {
 			Ballot b = new Ballot(directory + f.getName());
 			if (b.size() > 0) {
-				for (int j = 0; j < b.size(); j++) 
+				for (int j = 0; j < 4; j++) 
 				{
+					int z = j;
 					for (int i = 0; i < CANDIDATE_NAMES.length; i++) {
-						if (b.get(j).equals(CANDIDATE_NAMES[i])) {
+						if (b.get(z).equals(CANDIDATE_NAMES[i])) {
 							votes[i]++;
 						}
 					}
