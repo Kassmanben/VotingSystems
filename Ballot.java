@@ -8,7 +8,7 @@ public class Ballot {
 	private int size = 0;
 	private String directory;
 	private File f;
-	private String[] candidates = new String[4];
+	private String[] candidates = {"--","--","--","--","--"};
 
 	public Ballot(String directory) {
 		this.f = new File(directory);
@@ -17,15 +17,17 @@ public class Ballot {
 			BufferedReader b = new BufferedReader(new FileReader(this.f));
 			String readLine = "";
 			int i=0;
+			int countApproved = 0;
+			boolean approve =true;
 			while (((readLine = b.readLine()) != null)) {
 				readLine=readLine.trim();
-				if(readLine.equals("Akiko")||readLine.equals("Bob")||readLine.equals("Carlos")||readLine.equals("Danielle")){
+				if(readLine.equals("Akiko")||readLine.equals("Bob")||readLine.equals("Carlos")||readLine.equals("Danielle")||readLine.equals("--")){
 					candidates[i]=readLine;
 					i++;
 				}
 			}
-			for(String l:candidates){
-				StdOut.println(l);
+			for (String c: candidates){
+				StdOut.println(c);
 			}
 			
 		} catch (IOException e) {
@@ -42,6 +44,7 @@ public class Ballot {
 		}
 		return (lineCount);
 	}
+	
 
 	public String get(int rank) {
 		if (this.candidates[rank] == null) {
@@ -52,7 +55,7 @@ public class Ballot {
 	}
 
 	public static void main(String[] args) {
-		Ballot b = new Ballot("elections/election3/ballot0");
+		Ballot b = new Ballot("elections/election1/ballot0");
 	}
 
 }
