@@ -21,5 +21,20 @@ public class BallotTest {
 		ballot = new Ballot("elections/election1/ballot2");
 		assertEquals(4, ballot.size());
 	}
+	@Test
+	public void getCorrect() {
+		ballot = new Ballot("elections/election0/ballot0");
+		assertEquals("Akiko", ballot.get(0));
+	}
+	@Test
+	public void getCorrect2() {
+		ballot = new Ballot("elections/election3/ballot7");
+		assertEquals("Danielle", ballot.get(0));
+	}
+	@Test
+	public void getCorrect3() {
+		ballot = new Ballot("elections/election1/ballot2");
+		assertEquals("Akiko", ballot.get(0));
+	}
 
 }
