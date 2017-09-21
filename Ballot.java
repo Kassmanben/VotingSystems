@@ -8,7 +8,7 @@ public class Ballot {
 	private int size = 0;
 	private String directory;
 	private File f;
-	private String[] candidates = {"--","--","--","--","--"};
+	private String[] candidates = {"--","--","--","--","--"}; // this makes all ballots size 5 for some reason
 
 	public Ballot(String directory) {
 		this.f = new File(directory);
