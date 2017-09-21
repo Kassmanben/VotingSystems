@@ -8,7 +8,7 @@ public class Ballot {
 	private int size = 0;
 	private String directory;
 	private File f;
-	private String[] candidates = {"--","--","--","--","--"}; // this makes all ballots size 5 for some reason
+	private String[] candidates = new String [5];
 
 	public Ballot(String directory) {
 		this.f = new File(directory);
@@ -38,8 +38,8 @@ public class Ballot {
 
 	public int size() {
 		int lineCount = 0;
-		for (int i = 0; i < 5; i++) {
-			if (!this.candidates.equals(null)) {
+		for (int i = 0; i < candidates.length; i++) {
+			if (candidates[i] != null) {
 				lineCount++;
 			}
 		}
