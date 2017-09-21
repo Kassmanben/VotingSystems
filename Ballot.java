@@ -29,6 +29,7 @@ public class Ballot {
 			for (String c: candidates){
 				StdOut.println(c);
 			}
+			StdOut.println("XXXXXXXXXXXXXXXXXXXX");
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -37,7 +38,7 @@ public class Ballot {
 
 	public int size() {
 		int lineCount = 0;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			if (!this.candidates.equals(null)) {
 				lineCount++;
 			}
@@ -55,7 +56,7 @@ public class Ballot {
 	}
 
 	public static void main(String[] args) {
-		Ballot b = new Ballot("elections/election1/ballot0");
+		Ballot b = new Ballot("elections/election3/ballot0");
 	}
 
 }
